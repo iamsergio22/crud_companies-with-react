@@ -1,14 +1,33 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// componentes 
+import CompanyList from './components/company/CompanyList';
+import Navbar from './components/Navbar/Navbar';
+import Companyform from './components/company/Companyform';
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+    <BrowserRouter>
+      <div>
+        <Navbar />
+      </div>
+      <div className='container'>
+        <Routes>
+          <Route exac path='/' Component={CompanyList} />
+          <Route path='/company-form' Component={Companyform}/>
+          <Route path='/updateCompany/:id' Component={Companyform}/>
+        </Routes>        
+      </div>
+    </BrowserRouter>
+  </>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
